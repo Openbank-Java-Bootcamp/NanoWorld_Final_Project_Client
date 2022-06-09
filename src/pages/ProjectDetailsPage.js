@@ -1,17 +1,15 @@
 // src/pages/ProjectDetailsPage.js
-// ... previous imports stay unchanged
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom"; // <== IMPORT
+import { Link, useParams } from "react-router-dom"; 
 import AddTask from "../components/AddTask";
 import TaskCard from "../components/TaskCard";
 
-const API_URL = "http://localhost:5005"; // <== ADD
+const API_URL = "http://localhost:5005"; 
 
 function ProjectDetailsPage(props) {
   const [project, setProject] = useState(null);
-  // Get the URL parameter `:projectId`
-  const { projectId } = useParams(); // <== ADD
+  const { projectId } = useParams(); 
 
   // Helper function that makes a GET request to the API
   // and retrieves the project by id
