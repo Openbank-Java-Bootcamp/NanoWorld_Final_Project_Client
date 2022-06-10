@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import AddCluster from "../components/AddCluster";
+import CalculatorCard from "../components/CalculatorCard";
 import ClusterCard from "../components/ClusterCard";
 import SetCalculator from "../components/SetCalc";
 
@@ -21,6 +22,7 @@ function ProjectDetailsPage(props) {
       })
       .then((response) => {
         const oneProject = response.data;
+        console.log(oneProject);
         setProject(oneProject);
       })
       .catch((error) => console.log(error));
@@ -41,21 +43,13 @@ function ProjectDetailsPage(props) {
 
       <h1>Calculator:</h1>
       {/* <SetCalculator/> */}
-      {/* <p>{project.calculator.id}</p> */}
-      {/* {project && (
+     
+      {project && (
         <>
-          <p>{project.calculator_id}</p>
+          <CalculatorCard calculator={project.calculator}/>
         </>
-      )} */}
+      )}
 
-      {project &&
-        project.calculators.map((calculator) => (
-          <li className="TaskCard card" key={calculator.id}>
-            <h3>{calculator.id}</h3>
-            <h4>command:</h4>
-            <p>{calculator.command}</p>
-          </li>
-        ))}
 
       {/* NO TOCAR ESTA BIEN */}
       <h1>Clusters:</h1>

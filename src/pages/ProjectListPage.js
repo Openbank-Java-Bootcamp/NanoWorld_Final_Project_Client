@@ -20,7 +20,10 @@ function ProjectListPage() {
       .get(`${API_URL}/api/projects`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then((response) => setProjects(response.data))
+      .then((response) => {
+        console.log(response.data);
+        setProjects(response.data)}
+      )
       .catch((error) => console.log(error));
   };
 
