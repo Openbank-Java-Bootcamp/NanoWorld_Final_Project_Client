@@ -12,10 +12,10 @@ function ProjectListPage() {
   const [projects, setProjects] = useState([]);
 
   const getAllProjects = () => {
-    // Get the token from the localStorage
+ 
     const storedToken = localStorage.getItem("authToken");
 
-    // Send the token through the request "Authorization" Headers
+    // GET request to get the projects
     axios
       .get(`${API_URL}/api/projects`, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -24,8 +24,6 @@ function ProjectListPage() {
       .catch((error) => console.log(error));
   };
 
-  // We set this effect will run only once, after the initial render
-  // by setting the empty dependency array - []
   useEffect(() => {
     getAllProjects();
   }, []);

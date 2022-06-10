@@ -1,23 +1,20 @@
 // src/pages/ProjectDetailsPage.js
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom"; 
-import AddTask from "../components/AddTask";
-import TaskCard from "../components/TaskCard";
+import { Link, useParams } from "react-router-dom";
+import AddCluster from "../components/AddCluster";
+import ClusterCard from "../components/ClusterCard";
+import SetCalculator from "../components/SetCalc";
 
-const API_URL = "http://localhost:5005"; 
+const API_URL = "http://localhost:5005";
 
 function ProjectDetailsPage(props) {
   const [project, setProject] = useState(null);
-  const { projectId } = useParams(); 
+  const { projectId } = useParams();
 
-  // Helper function that makes a GET request to the API
-  // and retrieves the project by id
   const getProject = () => {
-    // Get the token from the localStorage
     const storedToken = localStorage.getItem("authToken");
 
-    // Send the token through the request "Authorization" Headers
     axios
       .get(`${API_URL}/api/projects/${projectId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -30,7 +27,6 @@ function ProjectDetailsPage(props) {
   };
 
   useEffect(() => {
-    // <== ADD AN EFFECT
     getProject();
   }, []);
 
@@ -43,16 +39,37 @@ function ProjectDetailsPage(props) {
         </>
       )}
 
-      <AddTask refreshProject={getProject} projectId={projectId} />
+      <h1>Calculator:</h1>
+      {/* <SetCalculator/> */}
+      {/* <p>{project.calculator.id}</p> */}
+      {/* {project && (
+        <>
+          <p>{project.calculator_id}</p>
+        </>
+      )} */}
 
       {project &&
-        project.tasks.map((task) => <TaskCard key={task.id} {...task} />)}
+        project.calculators.map((calculator) => (
+          <li className="TaskCard card" key={calculator.id}>
+            <h3>{calculator.id}</h3>
+            <h4>command:</h4>
+            <p>{calculator.command}</p>
+          </li>
+        ))}
+
+      {/* NO TOCAR ESTA BIEN */}
+      <h1>Clusters:</h1>
+      <AddCluster refreshProject={getProject} projectId={projectId} />
+
+      {project &&
+        project.clusters.map((cluster) => (
+          <ClusterCard key={cluster.id} {...cluster} />
+        ))}
 
       <Link to="/projects">
         <button>Back to projects</button>
       </Link>
 
-      {/*    ADD    */}
       <Link to={`/projects/edit/${projectId}`}>
         <button>Edit Project</button>
       </Link>
