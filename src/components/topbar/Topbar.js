@@ -1,4 +1,5 @@
 import "./Topbar.css";
+import "./shineLogo.scss";
 import React from "react";
 import { Home, Settings } from "@material-ui/icons";
 import VpnKeyRoundedIcon from "@material-ui/icons/VpnKeyRounded";
@@ -14,7 +15,14 @@ export default function Topbar() {
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-          <span className="logo">NanoClusters</span>
+          <div className="container">
+            <span className="logo" >NanoClusters</span>
+            {/* <h1 className="gold-text" data-text="NanoClusters">
+              <span className="gold-text__highlight" data-text="NanoClusters">
+              NanoClusters
+              </span>
+            </h1> */}
+          </div>
         </div>
 
         {isLoggedIn && (

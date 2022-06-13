@@ -4,14 +4,13 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-import SetCalculator from "../../components/SetCalc";
-
 const API_URL = "http://localhost:5005";
 
 function NewProject(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  
+  const [errorMessage, setErrorMessage] = useState(undefined);
+
   const navigate = useNavigate();
 
   // to Set Calculator
@@ -20,13 +19,13 @@ function NewProject(props) {
   const getAllCalculators = () => {
     const storedToken = localStorage.getItem("authToken");
 
-    // GET request to get the projects
+    // GET request to get the calculators
     axios
       .get(`${API_URL}/api/calculators`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => setCalculators(response.data))
-      .catch((error) => console.log(error));
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {
@@ -36,14 +35,13 @@ function NewProject(props) {
   // const calcs = calculators.map((calculator) => ({ label : calculator.comm, value : calculator.id}))
   /////////
 
+  // POST request to submit New Project
   const handleSubmit = (e) => {
     e.preventDefault();
     const requestBody = { title, description, calculatorId };
 
-    // Get the token from the localStorage
     const storedToken = localStorage.getItem("authToken");
 
-    // Send the token through the request "Authorization" Headers
     axios
       .post(`${API_URL}/api/projects`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -53,17 +51,20 @@ function NewProject(props) {
         setDescription("");
         setCalculatorId(0);
 
-        navigate("/projects"); 
+        navigate("/projects");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        const errorDescription = error.response.data.errors[0].defaultMessage;
+        setErrorMessage(errorDescription);
+      });
   };
 
   return (
-    <div className="newProject">
-      <h1 className="newProjectTitle">New project</h1>
+    <div className="formPage">
+      <h1 className="formTitle">New Project</h1>
 
-      <form className="newProjectForm" onSubmit={handleSubmit}>
-        <div className="newProjectItem">
+      <form className="formFormat" onSubmit={handleSubmit}>
+        <div className="formItem">
           <label>Title:</label>
           <input
             type="text"
@@ -73,7 +74,7 @@ function NewProject(props) {
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
-        <div className="newProjectItem">
+        <div className="formItem">
           <label>Description:</label>
           <input
             type="text"
@@ -83,13 +84,16 @@ function NewProject(props) {
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
-        <div className="newProjectItem">
+        <div className="formItem">
           <label>Select Calculator:</label>
           <select
-            className="newProjectSelect"
+            className="formItem"
             type="number"
             name="calculator"
-            defaultValue={{ label: "Select calculator", value: "Select calculator" }}
+            defaultValue={{
+              label: "Select calculator",
+              value: "Select calculator",
+            }}
             onChange={(e) => setCalculatorId(e.target.value)}
           >
             {calculators.map((calculator) => (
@@ -99,10 +103,11 @@ function NewProject(props) {
             ))}
           </select>
         </div>
-        <button type="submit" className="newProjectButton">
+        <button type="submit" className="formButton">
           Submit
         </button>
       </form>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
   );
 }

@@ -38,14 +38,11 @@ function ProjectDetailsPage(props) {
   return (
     <div className="project">
       <div className="projectTitleContainer">
-        <h1 className="projectTitle">Project Details</h1>
+        <h1 className="formTitle">Project Details</h1>
 
         <Link to="/projects">
-          <button className="projectAddButton">Back to projects</button>
+          <button className="formButton">Back to projects</button>
         </Link>
-        {/* <Link to={`/projects/edit/${projectId}`}>
-          <button className="projectAddButton">Edit Project</button>
-        </Link> */}
       </div>
 
       <div className="projectContainer">

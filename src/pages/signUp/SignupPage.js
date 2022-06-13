@@ -1,5 +1,3 @@
-// src/pages/SignupPage.js
-import "./signup.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -64,14 +62,19 @@ function SignupPage(props) {
           <label>Name:</label>
           <input type="text" name="name" value={name} onChange={handleName} />
         </div>
-        <button className="formButton" type="submit">Sign Up</button>
+        <button className="formButton" type="submit">
+          Sign Up
+        </button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <div className="signUploginItem">
-      Already have account?
-      <br/>
-      <Link to={"/login"} className="link2"> Login</Link>
+      <div className="signUpLoginItem">
+        Already have account?
+        <br />
+        <Link to={"/login"} className="link2">
+          {" "}
+          Login
+        </Link>
       </div>
     </div>
   );

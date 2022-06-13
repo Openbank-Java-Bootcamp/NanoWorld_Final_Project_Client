@@ -1,4 +1,3 @@
-// src/pages/ProjectListPage.js
 import "./projectList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
@@ -6,18 +5,19 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import ProjectCard from "../../components/ProjectCard";
 
 const API_URL = "http://localhost:5005";
 
 function ProjectListPage() {
+   // UseStates and Variables
+  const [isLoading, setLoading] = useState(true);
   const [projects, setProjects] = useState([]);
   const navigate = useNavigate();
 
+  // GET request to get the projects
   const getAllProjects = () => {
     const storedToken = localStorage.getItem("authToken");
 
-    // GET request to get the projects
     axios
       .get(`${API_URL}/api/projects`, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -25,6 +25,7 @@ function ProjectListPage() {
       .then((response) => {
         console.log(response.data);
         setProjects(response.data);
+        setLoading(false);
       })
       .catch((error) => console.log(error));
   };
@@ -36,23 +37,19 @@ function ProjectListPage() {
   //DELETE request to delete the project
   const deleteProject = (id) => {
     const storedToken = localStorage.getItem("authToken");
+    setLoading(true);
     axios
-      // .delete(`${API_URL}/api/projects/${projectId}`, {
-      .delete(`${API_URL}/api/projects/${projects.row.id}`, {
+      .delete(`${API_URL}/api/projects/${id}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
-        
       })
       .then(() => {
-        setProjects(projects.filter((project) => project.id !== id));
+        console.log(id);
+        getAllProjects();
         navigate("/projects");
       })
       .catch((err) => console.log(err));
   };
 
-   const handleDelete = (id) => {
-    setProjects(projects.filter((project) => project.id !== id));
-    ;
-  };
 
   const columns = [
     { field: "id", headerName: "ID", width: 140 },
@@ -81,8 +78,8 @@ function ProjectListPage() {
           <>
             <DeleteOutline
               className="projectListDelete"
-               onClick={() => handleDelete(projects.row.id)}
-              //  onClick={deleteProject}
+              //onClick={() => handleDelete(projects.row.id)}
+              onClick={() => deleteProject(projects.row.id)}
             />
           </>
         );
@@ -94,11 +91,6 @@ function ProjectListPage() {
 
   return (
     <div className="projectList">
-      {/* {projects.map((project) => (
-        <ProjectCard key={project.id} {...project} />
-      ))}
-      <AddProject refreshProjects={getAllProjects} />
- */}
       <div className="projectTitleContainer">
         <h1 className="projectTitle">Project Details</h1>
 
@@ -107,14 +99,15 @@ function ProjectListPage() {
           {/* <AddProject refreshProjects={getAllProjects} /> */}
         </Link>
       </div>
-
-      <DataGrid
-        rows={projects}
-        disableSelectionOnClick
-        columns={columns}
-        pageSize={8}
-        checkboxSelection
-      />
+      {isLoading && <p>Is loading</p>}
+      {!isLoading && (
+        <DataGrid
+          rows={projects}
+          disableSelectionOnClick
+          columns={columns}
+          checkboxSelection
+        />
+      )}
     </div>
   );
 }

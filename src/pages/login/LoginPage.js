@@ -1,5 +1,3 @@
-// src/pages/LoginPage.js
-import "./loginPage.css"
 import { useContext, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
@@ -32,7 +30,7 @@ function LoginPage(props) {
 
         storeToken(response.data.authToken);
         authenticateUser();
-        navigate("/"); 
+        navigate("/");
       })
       .catch((error) => {
         const errorDescription = error.response.data.errors[0].defaultMessage;
@@ -41,27 +39,39 @@ function LoginPage(props) {
   };
 
   return (
-    <div className="LoginPage">
-      <h1>Login</h1>
-
-      <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
-
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
-
-        <button type="submit">Login</button>
+    <div className="formPage">
+      <h1 className="formTitle">Log In</h1>
+      <form className="formFormat" onSubmit={handleLoginSubmit}>
+        <div className="formItem">
+          <label>Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleEmail}
+          />
+        </div>
+        <div className="formItem">
+          <label>Password:</label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePassword}
+          />
+        </div>
+        <button className="formButton" type="submit">
+          Login
+        </button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+      <div className="signUpLoginItem">
+        Don't have an account yet?
+        <br />
+        <Link to={"/signup"} className="link2">
+          Sign Up
+        </Link>
+      </div>
     </div>
   );
 }

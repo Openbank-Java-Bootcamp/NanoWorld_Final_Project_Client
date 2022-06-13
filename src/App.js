@@ -13,11 +13,12 @@ import SignupPage from "./pages/signUp/SignupPage";
 import LoginPage from "./pages/login/LoginPage";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
-import CalculatorListPage from "./pages/CalculatorListPage";
+import CalculatorListPage from "./pages/calculatorList/CalculatorListPage";
 import CalculatorDetailsPage from "./pages/CalculatorDetailsPage";
 import Topbar from "./components/topbar/Topbar";
 import Sidebar from "./components/sidebar/Sidebar";
-import NewProject from "./pages/newProject/NewProject";
+import NewProject from "./pages/projectNew/NewProject";
+import NewCalculator from "./pages/calculatorNew/NewCalculator";
 
 function App() {
   return (
@@ -84,6 +85,16 @@ function App() {
               <IsPrivate>
                 {" "}
                 <CalculatorDetailsPage />{" "}
+              </IsPrivate>
+            }
+          />
+
+          <Route
+            path="/calculators/newCalculator"
+            element={
+              <IsPrivate>
+                {" "}
+                <NewCalculator />{" "}
               </IsPrivate>
             }
           />
