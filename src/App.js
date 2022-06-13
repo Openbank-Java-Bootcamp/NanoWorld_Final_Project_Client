@@ -14,7 +14,7 @@ import LoginPage from "./pages/login/LoginPage";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 import CalculatorListPage from "./pages/calculatorList/CalculatorListPage";
-import CalculatorDetailsPage from "./pages/CalculatorDetailsPage";
+import CalculatorDetailsPage from "./pages/calculatorDetails/CalculatorDetailsPage";
 import Topbar from "./components/topbar/Topbar";
 import Sidebar from "./components/sidebar/Sidebar";
 import NewProject from "./pages/projectNew/NewProject";

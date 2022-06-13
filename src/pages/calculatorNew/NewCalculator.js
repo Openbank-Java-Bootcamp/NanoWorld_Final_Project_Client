@@ -37,7 +37,12 @@ function NewCalculator(props) {
 
   return (
     <div className="formPage">
-      <h1 className="formTitle">New Calculator</h1>
+      <div className="projectTitleContainer">
+        <h1 className="formTitle">New Calculator</h1>
+        <Link to="/calculators">
+          <button className="formButton">Back to calculators</button>
+        </Link>
+      </div>
 
       <form className="formFormat" onSubmit={handleSubmit}>
         <div className="formItem">
