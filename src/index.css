@@ -107,3 +107,27 @@ nav li {
 .TaskCard {
   background-color: #dfeef9;
 }
+
+/* App */
+.container {
+  display: flex;
+  margin-top: 10px;
+}
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.home {
+  flex: 4;
+}
+/*  */
+
+
+
+
+/* InfoBox */
+
+
+
+/*  */

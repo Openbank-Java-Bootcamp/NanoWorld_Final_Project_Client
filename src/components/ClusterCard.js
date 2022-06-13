@@ -6,6 +6,7 @@ function ClusterCard({ formula, energy }) {
         <h3>{formula}</h3>
         <h4>Energy:</h4>
         <p>{energy}</p>
+     
       </div>
     );
   }

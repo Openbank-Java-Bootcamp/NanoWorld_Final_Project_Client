@@ -1,17 +1,42 @@
 // // src/components/AddProject.js
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+
+import SetCalculator from "../components/SetCalc";
 
 const API_URL = "http://localhost:5005";
 
 function AddProject(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [calculatorId, setCalculatorId] = useState(0);
+
+  /////////
+  const [calculators, setCalculators] = useState([]);
+  const getAllCalculators = () => {
+    const storedToken = localStorage.getItem("authToken");
+
+    // GET request to get the projects
+    axios
+      .get(`${API_URL}/api/calculators`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => setCalculators(response.data))
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    getAllCalculators();
+  }, []);
+
+
+  // const calcs = calculators.map((calculator) => ({ label : calculator.comm, value : calculator.id}))
+  /////////
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { title, description };
+    const requestBody = { title, description, calculatorId};
 
     // Get the token from the localStorage
     const storedToken = localStorage.getItem("authToken");
@@ -22,9 +47,9 @@ function AddProject(props) {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        // Reset the state
         setTitle("");
         setDescription("");
+        setCalculatorId(0);
         props.refreshProjects();
       })
       .catch((error) => console.log(error));
@@ -36,7 +61,6 @@ function AddProject(props) {
 
       <form onSubmit={handleSubmit}>
         {" "}
-        {/*  <== UPDATE   */}
         <label>Title:</label>
         <input
           type="text"
@@ -51,6 +75,17 @@ function AddProject(props) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
+        <label>Select Calculator:</label>
+        {/* <SetCalc /> */}
+        <select type="number" name="calculator"
+          onChange={(e) => setCalculatorId(e.target.value)} >
+            
+          {calculators.map((calculator) => ( 
+            <option key={calculator.id} value={calculator.id}> {calculator.id} </option>
+          ))}
+         
+          </select>
+       
         <button type="submit">Submit</button>
       </form>
     </div>

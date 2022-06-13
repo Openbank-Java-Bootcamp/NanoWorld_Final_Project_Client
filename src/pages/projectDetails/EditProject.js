@@ -1,8 +1,9 @@
-// src/pages/EditProjectPage.js
+// src/pages/EditProject.js
 
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom"; 
+import { useNavigate, useParams } from "react-router-dom";
+import "./projectDetails.css";
 
 const API_URL = "http://localhost:5005";
 
@@ -10,8 +11,7 @@ function EditProjectPage(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-
-  const { projectId } = useParams(); 
+  const { projectId } = useParams();
 
   const navigate = useNavigate();
 
@@ -31,6 +31,8 @@ function EditProjectPage(props) {
         const oneProject = response.data;
         setTitle(oneProject.title);
         setDescription(oneProject.description);
+
+        props.refreshProject();
       })
       .catch((error) => console.log(error));
   }, [projectId]);
@@ -50,44 +52,41 @@ function EditProjectPage(props) {
       });
   };
 
-  //DELETE request to delete the project
-  const deleteProject = () => {
-    const storedToken = localStorage.getItem("authToken");
-    axios
-      .delete(`${API_URL}/api/projects/${projectId}`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
-      .then(() => {
-        navigate("/projects");
-      })
-      .catch((err) => console.log(err));
-  };
-
+ 
   return (
-    <div className="EditProjectPage">
-      <h3>Edit the Project</h3>
-
-      <form onSubmit={handleFormSubmit}>
-        <label>Title:</label>
-        <input
-          type="text"
-          name="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-
-        <label>Description:</label>
-        <textarea
-          name="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-
-        <button type="submit">Update Project</button>
+    <>
+      <form className="projectUpdateForm" onSubmit={handleFormSubmit}>
+        <div className="projectUpdateLeft">
+          <div className="projectUpdateItem">
+            <label>Title:</label>
+            <input
+              type="text"
+              name="title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
+          <div className="projectUpdateItem">
+            <label>Description:</label>
+            <textarea
+              name="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />{" "}
+          </div>
+          <div className="projectUpdateItem">
+            <button type="submit" className="projectUpdateButton">
+              Update Project
+            </button>
+          </div>
+          {/* <div className="projectUpdateItem">
+            <button onClick={deleteProject} className="projectUpdateButton">
+              Delete Project
+            </button>
+          </div> */}
+        </div>
       </form>
-
-      <button onClick={deleteProject}>Delete Project</button>
-    </div>
+    </>
   );
 }
 

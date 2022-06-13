@@ -16,10 +16,15 @@ function Navbar() {
           <Link to="/projects">
             <button>Projects</button>
           </Link>
+          <Link to="/calculators">
+            <button>Calculators</button>
+          </Link>
           <button onClick={logOutUser}>Logout</button>
           <span>{user && user.name}</span>
         </>
       )}
+
+     
 
       {!isLoggedIn && (
         <>
