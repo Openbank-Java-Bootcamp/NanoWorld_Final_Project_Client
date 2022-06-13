@@ -9,15 +9,15 @@ import EnergyPage from "./pages/energyPage/EnergyPage";
 import ProjectListPage from "./pages/projectList/ProjectListPage";
 import ProjectDetailsPage from "./pages/projectDetails/ProjectDetailsPage";
 import EditProject from "./pages/projectDetails/EditProject";
-import SignupPage from "./pages/SignupPage";
-import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/signUp/SignupPage";
+import LoginPage from "./pages/login/LoginPage";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 import CalculatorListPage from "./pages/CalculatorListPage";
 import CalculatorDetailsPage from "./pages/CalculatorDetailsPage";
 import Topbar from "./components/topbar/Topbar";
 import Sidebar from "./components/sidebar/Sidebar";
-import NewProject from "./pages/NewProject/NewProject";
+import NewProject from "./pages/newProject/NewProject";
 
 function App() {
   return (

@@ -45,13 +45,12 @@ export default function Topbar() {
           <>
             <div className="topRight">
               <Link to="/signup">
-                <button>Sign Up</button>
+                <button className="goldButton">Sign Up</button>
               </Link>
               <Link to="/login">
-                <div className="topbarIconContainer">
+                <button className="goldButton">
                   <VpnKeyRoundedIcon />
-                </div>
-                {/* <button>Login</button> */}
+                </button>
               </Link>
             </div>
           </>

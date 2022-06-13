@@ -1,5 +1,5 @@
 // src/pages/SignupPage.js
-
+import "./signup.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -38,31 +38,41 @@ function SignupPage(props) {
   };
 
   return (
-    <div className="SignupPage">
-      <h1>Sign Up</h1>
+    <div className="formPage">
+      <h1 className="formTitle">Sign Up</h1>
 
-      <form onSubmit={handleSignupSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
-
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
-
-        <label>Name:</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
-
-        <button type="submit">Sign Up</button>
+      <form className="formFormat" onSubmit={handleSignupSubmit}>
+        <div className="formItem">
+          <label>Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleEmail}
+          />
+        </div>
+        <div className="formItem">
+          <label>Password:</label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePassword}
+          />
+        </div>
+        <div className="formItem">
+          <label>Name:</label>
+          <input type="text" name="name" value={name} onChange={handleName} />
+        </div>
+        <button className="formButton" type="submit">Sign Up</button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
+      <div className="signUploginItem">
+      Already have account?
+      <br/>
+      <Link to={"/login"} className="link2"> Login</Link>
+      </div>
     </div>
   );
 }
