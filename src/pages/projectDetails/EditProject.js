@@ -7,10 +7,9 @@ import "./projectDetails.css";
 
 const API_URL = "http://localhost:5005";
 
-function EditProjectPage(props) {
+function EditProject(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-
   const { projectId } = useParams();
 
   const navigate = useNavigate();
@@ -24,10 +23,6 @@ function EditProjectPage(props) {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        /* 
-          We update the state with the project data coming from the response.
-          This way we set inputs to show the actual title and description of the project
-        */
         const oneProject = response.data;
         setTitle(oneProject.title);
         setDescription(oneProject.description);
@@ -44,15 +39,19 @@ function EditProjectPage(props) {
 
     //PUT request to update the project
     axios
-      .put(`${API_URL}/api/projects/${projectId}`, requestBody, {
+      .patch(`${API_URL}/api/projects/${projectId}`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
+        setTitle("");
+        setDescription("");
         navigate("/projects/" + projectId);
-      });
+
+        props.refreshProject();
+      })
+      .catch((error) => console.log(error));
   };
 
- 
   return (
     <>
       <form className="projectUpdateForm" onSubmit={handleFormSubmit}>
@@ -79,15 +78,10 @@ function EditProjectPage(props) {
               Update Project
             </button>
           </div>
-          {/* <div className="projectUpdateItem">
-            <button onClick={deleteProject} className="projectUpdateButton">
-              Delete Project
-            </button>
-          </div> */}
         </div>
       </form>
     </>
   );
 }
 
-export default EditProjectPage;
+export default EditProject;

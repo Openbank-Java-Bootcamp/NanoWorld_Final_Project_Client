@@ -15,6 +15,7 @@ function ProjectDetailsPage(props) {
   const [project, setProject] = useState(null);
   const { projectId } = useParams();
 
+  //GET to get project by Id
   const getProject = () => {
     const storedToken = localStorage.getItem("authToken");
 
@@ -48,12 +49,16 @@ function ProjectDetailsPage(props) {
       </div>
 
       <div className="projectContainer">
+        {/* Project Show Details */}
         <div className="projectShow">
           <div className="projectShowTop">
+            {/* Project Show Top Details */}
             {project && (
               <>
                 <div className="projectShowTopTitle">
-                  <span className="projectShowprojectname">{project.title}</span>
+                  <span className="projectShowprojectname">
+                    {project.title}
+                  </span>
                   <span className="projectShowprojectTitle">
                     {project.description}
                   </span>
@@ -61,12 +66,13 @@ function ProjectDetailsPage(props) {
               </>
             )}
           </div>
+          {/* Project Show Bottom Details */}
+          {/* Calculator Details  */}
           <div className="projectShowBottom">
             <span className="projectShowTitle">Calculator Details</span>
             <div className="projectShowInfo">
               {project && (
                 <>
-                  {/* <CalculatorCard calculator={project.calculator} /> */}
                   <span className="projectShowInfoTitle">
                     <Link to={`/calculators/${project.calculator.id}`}>
                       <p>Id: {project.calculator.id}</p>
@@ -75,7 +81,7 @@ function ProjectDetailsPage(props) {
                 </>
               )}
             </div>
-
+            {/* Clusters Details */}
             <span className="projectShowTitle">Clusters Details</span>
             <div className="projectShowInfo">
               <span className="projectShowInfoTitle">
@@ -87,13 +93,15 @@ function ProjectDetailsPage(props) {
             </div>
           </div>
         </div>
-
+        {/* Project Updates */}
         <div className="projectUpdate">
-          <div className="editProject">
+          {/* Edit Project Top Details */}
+          <div className="projectEditDetails">
             <span className="projectUpdateTitle">Edit Project</span>
             <EditProject refreshProject={getProject} projectId={projectId} />
           </div>
-          <div className="addCluster">
+           {/* Add Cluster to projects */}
+          <div className="projectAddCluster">
             <span className="projectUpdateTitle">Add New Cluster</span>
             <AddCluster refreshProject={getProject} projectId={projectId} />
           </div>

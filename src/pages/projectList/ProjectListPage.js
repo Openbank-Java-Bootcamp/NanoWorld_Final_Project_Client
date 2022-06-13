@@ -6,7 +6,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import AddProject from "../../components/AddProject";
 import ProjectCard from "../../components/ProjectCard";
 
 const API_URL = "http://localhost:5005";
@@ -35,22 +34,24 @@ function ProjectListPage() {
   }, []);
 
   //DELETE request to delete the project
-  const deleteProject = () => {
+  const deleteProject = (id) => {
     const storedToken = localStorage.getItem("authToken");
     axios
       // .delete(`${API_URL}/api/projects/${projectId}`, {
       .delete(`${API_URL}/api/projects/${projects.row.id}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
+        
       })
       .then(() => {
+        setProjects(projects.filter((project) => project.id !== id));
         navigate("/projects");
       })
       .catch((err) => console.log(err));
   };
 
-  // COLUMNAS    // ///////////////////////////////////////////////////////
-  const handleDelete = (id) => {
+   const handleDelete = (id) => {
     setProjects(projects.filter((project) => project.id !== id));
+    ;
   };
 
   const columns = [
@@ -80,8 +81,8 @@ function ProjectListPage() {
           <>
             <DeleteOutline
               className="projectListDelete"
-              // onClick={() => handleDelete(projects.row.id)}
-              onClick={deleteProject}
+               onClick={() => handleDelete(projects.row.id)}
+              //  onClick={deleteProject}
             />
           </>
         );
@@ -101,8 +102,9 @@ function ProjectListPage() {
       <div className="projectTitleContainer">
         <h1 className="projectTitle">Project Details</h1>
 
-        <Link to="/newproject">
+        <Link to="/projects/newProject">
           <button className="projectAddButton">Create</button>
+          {/* <AddProject refreshProjects={getAllProjects} /> */}
         </Link>
       </div>
 

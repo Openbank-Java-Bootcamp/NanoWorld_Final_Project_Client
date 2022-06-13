@@ -53,7 +53,9 @@ function AddCluster(props) {
             />
           </div>
           <div className="projectUpdateItem">
-            <button type="submit" className="projectUpdateButton">Add Cluster</button>
+            <button type="submit" className="projectUpdateButton">
+              Add Cluster
+            </button>
           </div>
         </div>
       </form>

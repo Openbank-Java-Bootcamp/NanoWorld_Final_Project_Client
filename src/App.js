@@ -8,7 +8,7 @@ import HomePage from "./pages/homePage/HomePage";
 import EnergyPage from "./pages/energyPage/EnergyPage";
 import ProjectListPage from "./pages/projectList/ProjectListPage";
 import ProjectDetailsPage from "./pages/projectDetails/ProjectDetailsPage";
-import EditProjectPage from "./pages/projectDetails/EditProject";
+import EditProject from "./pages/projectDetails/EditProject";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import IsPrivate from "./components/IsPrivate";
@@ -17,6 +17,7 @@ import CalculatorListPage from "./pages/CalculatorListPage";
 import CalculatorDetailsPage from "./pages/CalculatorDetailsPage";
 import Topbar from "./components/topbar/Topbar";
 import Sidebar from "./components/sidebar/Sidebar";
+import NewProject from "./pages/NewProject/NewProject";
 
 function App() {
   return (
@@ -52,7 +53,17 @@ function App() {
             element={
               <IsPrivate>
                 {" "}
-                <EditProjectPage />{" "}
+                <EditProject />{" "}
+              </IsPrivate>
+            }
+          />
+
+          <Route
+            path="/projects/newProject"
+            element={
+              <IsPrivate>
+                {" "}
+                <NewProject />{" "}
               </IsPrivate>
             }
           />
