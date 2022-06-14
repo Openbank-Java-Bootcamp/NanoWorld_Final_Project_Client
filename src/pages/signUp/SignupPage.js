@@ -8,6 +8,7 @@ function SignupPage(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [role, setRole] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -15,15 +16,20 @@ function SignupPage(props) {
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
   const handleName = (e) => setName(e.target.value);
+  const handleRole = (e) => setRole(e.target.value);
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { email, password, name };
+    const requestBody = { email, password, name, role };
 
     axios
-      .post(`${API_URL}/api/auth/signup`, requestBody)
+      // .post(`${API_URL}/api/auth/signup`, requestBody)
+      .post(`${API_URL}/api/auth/signup/withRole`, requestBody)
+
       .then((response) => {
         navigate("/login");
+        console.log(requestBody);
+        console.log(role);
       })
       .catch((error) => {
         const errorDescription = error.response.data.errors[0].defaultMessage;
@@ -61,20 +67,24 @@ function SignupPage(props) {
         <div className="formItem">
           <label></label>
           <div className="formOcupation">
+            <label htmlFor="professor">Professor</label>
             <input
               type="radio"
               name="ocupattion"
               id="professor"
-              value="professor"
+              // value="professor"
+              value="ROLE_TEACHER"
+              onChange={handleRole}
             />
-            <label for="professor">Professor</label>
+            <label htmlFor="student">Student</label>
             <input
               type="radio"
               name="ocupattion"
               id="student"
-              value="student"
+              // value="student"
+              value="ROLE_STUDENT"
+              onChange={handleRole}
             />
-            <label for="student">Student</label>
           </div>
         </div>
         <button className="formButton" type="submit">
