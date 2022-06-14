@@ -49,7 +49,7 @@ export default function Sidebar() {
                 Energy
               </li>
             </Link>
-            <Link to="/energy" className="link">
+            <Link to="/morpho" className="link">
               <li className="sidebarListItem">
                 <FitnessCenterRounded className="sidebarIcon" />
                 Forces
