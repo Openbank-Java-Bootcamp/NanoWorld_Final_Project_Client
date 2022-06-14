@@ -25,7 +25,10 @@ function NewProject(props) {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => setCalculators(response.data))
-      .catch((err) => console.log(err));
+      .catch((error) => {
+        const errorDescription = error.response.data.errors[0].defaultMessage;
+        setErrorMessage(errorDescription);
+      });
   };
 
   useEffect(() => {
@@ -54,7 +57,7 @@ function NewProject(props) {
         navigate("/projects");
       })
       .catch((error) => {
-        const errorDescription = error.response.data.errors[0].defaultMessage;
+        const errorDescription = "Only Professors";
         setErrorMessage(errorDescription);
       });
   };

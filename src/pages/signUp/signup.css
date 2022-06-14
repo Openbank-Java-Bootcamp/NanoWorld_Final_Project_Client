@@ -1,0 +1,9 @@
+.formOcupation > input {
+  margin-top: 15px;
+}
+
+.formOcupation > label {
+  margin: 10px;
+  font-size: 18px;
+  color: #555;
+}

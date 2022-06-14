@@ -29,7 +29,13 @@ function App() {
         <Sidebar />
 
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/"
+            element={
+                <HomePage />
+            }
+          />
+
           <Route
             path="/projects"
             element={
