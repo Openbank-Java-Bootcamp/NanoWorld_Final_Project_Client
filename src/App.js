@@ -20,6 +20,7 @@ import Sidebar from "./components/sidebar/Sidebar";
 import NewProject from "./pages/projectNew/NewProject";
 import NewCalculator from "./pages/calculatorNew/NewCalculator";
 import Morpho from "./pages/morphoDB/Morpho";
+import EnergyPlot from "./pages/energyPage/EnergyPlot";
 
 function App() {
   return (
@@ -106,7 +107,9 @@ function App() {
             }
           />
 
-          <Route path="/energy" element={<EnergyPage />} />
+          {/* <Route path="/energy" element={<EnergyPage />} /> */}
+          <Route path="/energy" element={<EnergyPlot />} />
+          
           <Route path="/morpho" element={<Morpho />} />
           <Route
             path="/signup"

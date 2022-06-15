@@ -1,9 +1,6 @@
 // src/pages/EnergyPage.js
 
-
-
 import LineChart from "../../components/lineChart/LineChart";
-import InfoBox from "../../components/infoBox/InfoBox";
 import "./HomePage.css";
 import { userData } from "../../data/dummyData.js";
 
