@@ -19,7 +19,7 @@ export default function Topbar() {
             <span className="logo" >NanoClusters</span>
             {/* <h1 className="gold-text" data-text="NanoClusters">
               <span className="gold-text__highlight" data-text="NanoClusters">
-              NanoClusters
+                NanoClusters
               </span>
             </h1> */}
           </div>

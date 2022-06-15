@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom"; // <== IMPORT
 
 import Navbar from "./components/Navbar"; // <== IMPORT
 import HomePage from "./pages/homePage/HomePage";
-import EnergyPage from "./pages/energyPage/EnergyPage";
+
 import ProjectListPage from "./pages/projectList/ProjectListPage";
 import ProjectDetailsPage from "./pages/projectDetails/ProjectDetailsPage";
 import EditProject from "./pages/projectDetails/EditProject";
@@ -21,8 +21,6 @@ import NewProject from "./pages/projectNew/NewProject";
 import NewCalculator from "./pages/calculatorNew/NewCalculator";
 import Morpho from "./pages/morphoDB/Morpho";
 import EnergyPlot from "./pages/energyPage/EnergyPlot";
-import EnergyPlot2 from "./pages/energyPage/EnergyPlot2";
-import EnergyPlot3 from "./pages/energyPage/EnergyPlot3";
 
 function App() {
   return (
@@ -32,12 +30,7 @@ function App() {
         <Sidebar />
 
         <Routes>
-          <Route
-            path="/"
-            element={
-                <HomePage />
-            }
-          />
+          <Route path="/" element={<HomePage />} />
 
           <Route
             path="/projects"
@@ -109,12 +102,8 @@ function App() {
             }
           />
 
-          {/* <Route path="/energy" element={<EnergyPage />} /> */}
-          {/* <Route path="/energy" element={<EnergyPlot />} /> */}
-          {/* <Route path="/energy" element={<EnergyPlot2 />} /> */}
-          <Route path="/energy" element={<EnergyPlot3 />} />
-         
-          
+          <Route path="/energy" element={<EnergyPlot />} />
+
           <Route path="/morpho" element={<Morpho />} />
           <Route
             path="/signup"

@@ -2,14 +2,16 @@
 import "./calculatorDetails.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import CalculatorCard from "../../components/CalculatorCard";
+import { DeleteOutline } from "@material-ui/icons";
 
 const API_URL = "http://localhost:5005";
 
 function CalculatorDetailsPage(props) {
   const [calculator, setCalculator] = useState(null);
   const { calculatorId } = useParams();
+  const navigate = useNavigate();
 
   //GET to get calculator by Id
   const getCalculator = () => {
@@ -28,6 +30,20 @@ function CalculatorDetailsPage(props) {
   useEffect(() => {
     getCalculator();
   }, []);
+
+  const deleteCalculator = () => {
+    const storedToken = localStorage.getItem("authToken");
+    axios
+      .delete(`${API_URL}/api/calculators/${calculatorId}`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then(() => {
+        navigate("/calculators");
+      })
+      .catch((err) => console.log(err));
+  };
+
+
 
   return (
     <div className="project">
@@ -65,6 +81,11 @@ function CalculatorDetailsPage(props) {
           </div>
           {/* Clusters Details */}
         </div>
+        <DeleteOutline
+              className="projectListDelete"
+              //onClick={() => handleDelete(projects.row.id)}
+              onClick={() => deleteCalculator(calculatorId)}
+            />
       </div>
 
       {/* ADD   
