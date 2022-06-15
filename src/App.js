@@ -22,6 +22,7 @@ import NewCalculator from "./pages/calculatorNew/NewCalculator";
 import Morpho from "./pages/morphoDB/Morpho";
 import EnergyPlot from "./pages/energyPage/EnergyPlot";
 import EnergyPlot2 from "./pages/energyPage/EnergyPlot2";
+import EnergyPlot3 from "./pages/energyPage/EnergyPlot3";
 
 function App() {
   return (
@@ -110,7 +111,8 @@ function App() {
 
           {/* <Route path="/energy" element={<EnergyPage />} /> */}
           {/* <Route path="/energy" element={<EnergyPlot />} /> */}
-          <Route path="/energy" element={<EnergyPlot2 />} />
+          {/* <Route path="/energy" element={<EnergyPlot2 />} /> */}
+          <Route path="/energy" element={<EnergyPlot3 />} />
          
           
           <Route path="/morpho" element={<Morpho />} />
