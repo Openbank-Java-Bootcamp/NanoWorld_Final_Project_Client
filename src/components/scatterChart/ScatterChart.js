@@ -27,8 +27,8 @@ export default function Chart({ title, data, grid}) {
           {grid && <CartesianGrid stroke="#e0dfdf" />}
           <XAxis type="number" dataKey="x" name="stature" unit="cm" />
           <YAxis type="number" dataKey="y" name="weight" unit="kg" />
-          <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-         
+          {/* <Tooltip cursor={{ strokeDasharray: "3 3" }} /> */}
+          <Tooltip/>
         </ScatterChart>
       </ResponsiveContainer>
     </div>
