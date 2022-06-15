@@ -43,6 +43,7 @@ export const data = {
 };
 
 export default function EnergyPlot2() {
+  
   return (
     <div className="home">
       <Bubble options={options} data={data} />
