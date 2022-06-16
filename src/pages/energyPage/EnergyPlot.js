@@ -58,7 +58,7 @@ export default function EnergyPlot() {
     let tooltip = {}
     tempObjArray = clusters.map((cluster) => ({
       x: cluster.natoms,
-      y: cluster.energy,
+      y: cluster.energyAtom,
       r: faker.datatype.number({ min: 5, max: 10 }),
     }));
     tooltip = clusters.map((cluster) => ({

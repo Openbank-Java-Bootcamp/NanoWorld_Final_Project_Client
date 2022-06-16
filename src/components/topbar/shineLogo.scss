@@ -136,22 +136,41 @@ $decoration-gradient: radial-gradient(
 }
 
 .gold-text {
-  font-family: "Alegreya", serif;
-  font-style: italic;
-  font-size: 50px;
-  word-spacing: 0.2em;
-  display: inline-block;
-  padding: 10px;
-  line-height: 1;
-  white-space: nowrap;
-  color: transparent;
-  background-color: $color-gold;
-  background-image: $gold-gradient;
-  background-size: 100% 100%;
+  font-weight: bold;
+  font-size: 40px;
+  color: rgb(139, 137, 0);
+  background: linear-gradient(
+    160deg,
+    #a54e07,
+    #b47e11,
+    #ddd28e,
+    #bc881b,
+    #a54e07
+  );
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4),
+    inset 0 0 3px rgba(139, 66, 8, 1),
+    inset 0 0 3px rgba(250, 227, 133, 1);
   background-clip: text;
   -webkit-background-clip: text;
-  margin: 0 0 0.5rem 0;
-  margin-left: 100px;
+  -webkit-text-fill-color: transparent;
+  
+  cursor: pointer;
+  // font-family: "Alegreya", serif;
+  // font-style: italic;
+  // font-size: 50px;
+  // word-spacing: 0.2em;
+  // display: inline-block;
+  // padding: 10px;
+  // line-height: 1;
+  // white-space: nowrap;
+  // color: transparent;
+  // background-color: $color-gold;
+  // background-image: $gold-gradient;
+  // background-size: 100% 100%;
+  // background-clip: text;
+  // -webkit-background-clip: text;
+  // margin: 0 0 0.5rem 0;
+  // margin-left: 100px;
   &:before {
     content: attr(data-text);
     position: absolute;

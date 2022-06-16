@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "./signup.css";
 
 const API_URL = "http://localhost:5005";
 
@@ -38,7 +39,7 @@ function SignupPage(props) {
   };
 
   return (
-    <div className="formPage">
+    <div className="formPage" id="main">
       <h1 className="formTitle">Sign Up</h1>
 
       <form className="formFormat" onSubmit={handleSignupSubmit}>
@@ -72,7 +73,6 @@ function SignupPage(props) {
               type="radio"
               name="ocupattion"
               id="professor"
-              // value="professor"
               value="ROLE_TEACHER"
               onChange={handleRole}
             />
@@ -81,7 +81,6 @@ function SignupPage(props) {
               type="radio"
               name="ocupattion"
               id="student"
-              // value="student"
               value="ROLE_STUDENT"
               onChange={handleRole}
             />
@@ -91,8 +90,14 @@ function SignupPage(props) {
           Sign Up
         </button>
       </form>
-
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <span className="space">
+        <p>
+          <br />
+        </p>
+      </span>
+      <div className="formItem">
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+      </div>
       <div className="signUpLoginItem">
         Already have account?
         <br />

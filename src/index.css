@@ -1,6 +1,9 @@
 body {
   margin: 0;
 }
+.className {
+  margin: 0 auto;
+}
 
 a {
   list-style: none;
@@ -104,10 +107,6 @@ nav li {
   display: block;
 }
 
-.TaskCard {
-  background-color: #dfeef9;
-}
-
 /* App */
 .container {
   display: flex;
@@ -151,16 +150,24 @@ nav li {
   margin: 20px, 100px;
   cursor: pointer;
 }
-
+.space{
+  line-height: 1cm;
+}
 /* Forms */
 
 .formPage {
   flex: 4;
+  padding-top: 2cm;
+  padding-bottom: -2cm;
 }
 
 .formFormat {
   display: flex;
   flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
 }
 .formTitle {
   font-size: 30px;
@@ -170,25 +177,49 @@ nav li {
 }
 .formItem {
   width: 100%;
+  line-height: 0.1cm;
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
-  margin-right: 20px;
+  padding: 2%;
+  align-items: center;
 }
 
 .formItem > label {
   margin-bottom: 10px;
-  font-size: 14px;
+  padding-top: 1%;
+  padding-bottom: 2%;
+  font-size: 17px;
   font-weight: 600;
-  color: rgb(151, 150, 150);
+  text-decoration: none;
+  font-style: normal;
+  font-variant-ligatures: normal;
+  font-variant-caps: normal;
+  font-variant-east-asian: normal;
+  font-variant-position: normal;
+  text-transform: none;
+  font-size: 20px;
+  color: #eba820;
 }
 
 .formItem > input {
-  width: auto;
-  height: 20px;
-  padding: 15px;
+  width: 10cm;
+  height: auto;
+  font-size: larger;
   border: 1px solid gray;
   border-radius: 5px;
+  background-image: linear-gradient(0, #b47e11, #fef1a2);
+  color: rgb(41, 20, 9);
+}
+
+.formItem > textarea {
+  width: 10cm;
+  height: 3cm;
+  line-height: normal;
+  font-size: 20px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-image: linear-gradient(0, #b47e11, #fef1a2);
+  color: rgb(41, 20, 9);
 }
 
 .formSelect {
@@ -197,7 +228,7 @@ nav li {
 }
 
 .formButton {
-  font-size: 15px;
+  font-size: 20px;
   font-family: inherit;
   border-radius: 5px;
   border: 1px solid #a55d07;
@@ -217,6 +248,7 @@ nav li {
   width: auto;
   border: none;
   padding: 7px 10px;
+
   font-weight: 600;
   border-radius: 10px;
   margin: 20px 0px;
@@ -251,13 +283,15 @@ nav li {
 }
 
 .signUploginItem {
-  margin-bottom: 10px;
+  padding: -50%;
+  line-height: 1%;
   font-size: 14px;
   font-weight: 600;
   color: rgb(151, 150, 150);
 }
 .error-message {
   font-weight: 600;
+ height: 10px;
   color: red;
   border-radius: 5px;
   background-image: linear-gradient(0deg, rgb(250, 227, 133), transparent);

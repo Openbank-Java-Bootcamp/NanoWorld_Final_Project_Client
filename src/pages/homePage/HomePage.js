@@ -11,7 +11,7 @@ import ReactPlayer from "react-player";
 
 export default function Home() {
   return (
-    <div className="home">
+    <div className="home" id="main">
       <div className="bigFrame">
         <div className="bigFrameRight">
           <ReactPlayer
@@ -22,16 +22,16 @@ export default function Home() {
           />
         </div>
         {/* <div className="bigFrameLeft"> */}
-          <p>
-            Recently, scientists have realised that tiny pieces of this precious
-            metal -far too small to be seen by the naked eye- could also become
-            a valued commodity. In labs around the world, gold nanoparticles are
-            being tested as components in technology and medicines. Let see,
-            share and create data about nanoclusters and nanoparticles here.
-            Structural and energetic data very important for nanotechnology to
-            develop gold could be used to kill cancer cells, improve the
-            efficiency of solar cells and catalyse chemical reactions.
-          </p>
+        <p>
+          Recently, scientists have realised that tiny pieces of this precious
+          metal -far too small to be seen by the naked eye- could also become a
+          valued commodity. In labs around the world, gold nanoparticles are
+          being tested as components in technology and medicines. Let see, share
+          and create data about nanoclusters and nanoparticles here. Structural
+          and energetic data very important for nanotechnology to develop gold
+          could be used to kill cancer cells, improve the efficiency of solar
+          cells and catalyse chemical reactions.
+        </p>
         {/* </div> */}
       </div>
 

@@ -6,7 +6,7 @@ import { Link, useParams } from "react-router-dom";
 import AddCluster from "./AddCluster";
 import EditProject from "./EditProject";
 import CalculatorCard from "../../components/CalculatorCard";
-import ClusterCard from "../../components/ClusterCard";
+import ClusterCard from "../../components/clusterCard/ClusterCard";
 import EditProjectPage from "./EditProject";
 
 const API_URL = "http://localhost:5005";
@@ -25,7 +25,6 @@ function ProjectDetailsPage(props) {
       })
       .then((response) => {
         const oneProject = response.data;
-        console.log(oneProject);
         setProject(oneProject);
       })
       .catch((error) => console.log(error));
@@ -36,9 +35,9 @@ function ProjectDetailsPage(props) {
   }, []);
 
   return (
-    <div className="project">
+    <div className="projectList" id="main">
       <div className="projectTitleContainer">
-        <h1 className="formTitle">Project Details</h1>
+        <h1 className="projectTitle">Project Details</h1>
 
         <Link to="/projects">
           <button className="formButton">Back to projects</button>
@@ -57,36 +56,44 @@ function ProjectDetailsPage(props) {
                     {project.title}
                   </span>
                   <span className="projectShowprojectTitle">
+                    Creadted by: {project.creator}
+                  </span>
+                  <span className="projectShowprojectTitle">
                     {project.description}
                   </span>
                 </div>
               </>
             )}
           </div>
+          {/* <div className="projectTitleContainer cardscontainer">
+              <div className="projectShowTitle">Created by:   </div>
+            </div> */}
+          <hr></hr>
           {/* Project Show Bottom Details */}
           {/* Calculator Details  */}
           <div className="projectShowBottom">
-            <span className="projectShowTitle">Calculator Details</span>
-            <div className="projectShowInfo">
+            <div className="projectTitleContainer cardscontainer">
+              <div className="projectShowTitle">Calculator </div>
               {project && (
                 <>
-                  <span className="projectShowInfoTitle">
-                    <Link to={`/calculators/${project.calculator.id}`}>
-                      <p>Id: {project.calculator.id}</p>
+                  <span className="projectShowInfo">
+                    <Link to={`/calculators/${project.calculator.id}`} className="link">
+                      <h1 className="sidebarListItem ">Id: {project.calculator.id}</h1>
                     </Link>
                   </span>
                 </>
               )}
             </div>
             {/* Clusters Details */}
-            <span className="projectShowTitle">Clusters Details</span>
-            <div className="projectShowInfo">
-              <span className="projectShowInfoTitle">
+            <div className="projectTitleContainer cardscontainer">
+              <span className="projectShowTitle">Clusters Details</span>
+              <div className="projectShowInfo">
+                <span/>
                 {project &&
                   project.clusters.map((cluster) => (
                     <ClusterCard key={cluster.id} {...cluster} />
                   ))}
-              </span>
+              </div>
             </div>
           </div>
         </div>
@@ -97,7 +104,7 @@ function ProjectDetailsPage(props) {
             <span className="projectUpdateTitle">Edit Project</span>
             <EditProject refreshProject={getProject} projectId={projectId} />
           </div>
-           {/* Add Cluster to projects */}
+          {/* Add Cluster to projects */}
           <div className="projectAddCluster">
             <span className="projectUpdateTitle">Add New Cluster</span>
             <AddCluster refreshProject={getProject} projectId={projectId} />

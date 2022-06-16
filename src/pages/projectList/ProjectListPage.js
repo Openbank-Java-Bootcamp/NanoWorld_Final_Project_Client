@@ -5,11 +5,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import IsLoading from "../../components/IsLoading/IsLoading";
 
 const API_URL = "http://localhost:5005";
 
 function ProjectListPage() {
-   // UseStates and Variables
+  // UseStates and Variables
   const [isLoading, setLoading] = useState(true);
   const [projects, setProjects] = useState([]);
   const navigate = useNavigate();
@@ -50,15 +51,40 @@ function ProjectListPage() {
       .catch((err) => console.log(err));
   };
 
-
   const columns = [
-    { field: "id", headerName: "ID", width: 140 },
-    { field: "title", headerName: "Title", width: 300 },
-    { field: "description", headerName: "Description", width: 400 },
+    {
+      field: "id",
+      headerName: "ID",
+      width: 10,
+      cellClassName: "projectListBody",
+      headerClassName: "projectListHeader",
+    },
+    {
+      field: "title",
+      headerName: "Title",
+      width: 200,
+      cellClassName: "projectListBody Vip",
+      headerClassName: "projectListHeader",
+    },
+    {
+      field: "creator",
+      headerName: "Creator",
+      width: 200,
+      cellClassName: "projectListBody Vip",
+      headerClassName: "projectListHeader",
+    },
+    {
+      field: "description",
+      headerName: "Description",
+      width: 400,
+      cellClassName: "projectListBody",
+      headerClassName: "projectListHeader",
+    },
     {
       field: "  ",
       headerName: "  ",
       width: 100,
+      headerClassName: "projectListHeader",
       renderCell: (projects) => {
         return (
           <>
@@ -73,6 +99,7 @@ function ProjectListPage() {
       field: "    ",
       headerName: "    ",
       width: 20,
+      headerClassName: "projectListHeader",
       renderCell: (projects) => {
         return (
           <>
@@ -90,23 +117,33 @@ function ProjectListPage() {
   // ///////////////////////////////////////////////////////
 
   return (
-    <div className="projectList">
-      <div className="projectTitleContainer">
-        <h1 className="projectTitle">Project Details</h1>
-
-        <Link to="/projects/newProject">
-          <button className="projectAddButton">Create</button>
-          {/* <AddProject refreshProjects={getAllProjects} /> */}
-        </Link>
-      </div>
-      {isLoading && <p>Is loading</p>}
+    <div className="projectList" id="main">
+      {isLoading && (
+        <>
+          <p>
+            <IsLoading /> Is loading
+          </p>
+        </>
+      )}
       {!isLoading && (
-        <DataGrid
-          rows={projects}
-          disableSelectionOnClick
-          columns={columns}
-          checkboxSelection
-        />
+        <>
+          <div className="projectTitleContainer">
+            <h1 className="projectTitle">Project Details</h1>
+
+            <Link to="/projects/newProject">
+              <button className="goldButton">Create</button>
+            </Link>
+          </div>
+          <div className="dataGrid">
+            <DataGrid
+              rows={projects}
+              disableSelectionOnClick
+              columns={columns}
+              autoHeight 
+              getEstimatedRowHeight={() => 200}
+            />
+          </div>
+        </>
       )}
     </div>
   );

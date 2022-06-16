@@ -39,7 +39,7 @@ function LoginPage(props) {
   };
 
   return (
-    <div className="formPage">
+    <div className="formPage"  id="main">
       <h1 className="formTitle">Log In</h1>
       <form className="formFormat" onSubmit={handleLoginSubmit}>
         <div className="formItem">
@@ -64,6 +64,11 @@ function LoginPage(props) {
           Login
         </button>
       </form>
+      <span className="space">
+        <p>
+          <br />
+        </p>
+      </span>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <div className="signUpLoginItem">
         Don't have an account yet?

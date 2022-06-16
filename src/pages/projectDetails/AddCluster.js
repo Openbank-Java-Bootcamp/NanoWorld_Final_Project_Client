@@ -33,7 +33,7 @@ function AddCluster(props) {
   return (
     <>
       <form className="projectUpdateForm" onSubmit={handleSubmit}>
-        <div className="projectUpdateLeft">
+        {/* <div className="projectUpdateLeft"> */}
           <div className="projectUpdateItem">
             <label>Formula:</label>
             <input
@@ -57,7 +57,7 @@ function AddCluster(props) {
               Add Cluster
             </button>
           </div>
-        </div>
+        {/* </div> */}
       </form>
     </>
   );

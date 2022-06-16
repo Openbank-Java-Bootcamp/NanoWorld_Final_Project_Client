@@ -22,7 +22,7 @@
 
 .projectContainer {
   display: flex;
-  margin-top: 10px;
+  padding-right: -60%;
 }
 
 .projectShow {
@@ -32,12 +32,12 @@
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 }
 .projectUpdate {
-    flex: 2;
-    padding: 20px;
-    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
-    margin-left: 20px;
-  }
+  flex: 2;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  margin-left: 20px;
+}
 
 .projectEditDetails {
   padding: 20px;
@@ -45,52 +45,59 @@
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   margin-left: 20px;
 }
-.projectAddCluster{
-    padding: 20px;
-    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
-    margin-left: 20px;
-  }
+.projectAddCluster {
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  margin-left: 20px;
+}
 
 .projectShowTop {
   display: flex;
-  align-items: center;
+  align-items: left;
 }
-
-
 
 .projectShowTopTitle {
   font-size: 30px;
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
-  margin-bottom: 20px;
+  padding: 2% 1%;
+  font-size: 15px;
+  text-decoration: none;
+  font-style: normal;
+  font-variant-ligatures: normal;
+  font-variant-caps: normal;
+  font-variant-east-asian: normal;
+  font-variant-position: normal;
+  text-transform: none;
 }
 
 .projectShowprojectname {
+  font-size: 30px;
   font-weight: 600;
+  color: #a54e07;
 }
-
-.projectShowprojectTitle {
-  font-weight: 300;
-}
-
 .projectShowBottom {
-  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.projectShowBottomItem{
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .projectShowTitle {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 600;
-  color: rgb(175, 170, 170);
-  margin-bottom: 20px;
+  color: #b47e11;
 }
 
 .projectShowInfo {
   display: flex;
-  align-items: center;
+  align-content: center;
   margin: 3px 0px;
   color: #444;
+  flex-direction: column;
 }
 
 .projectShowIcon {
@@ -101,6 +108,9 @@
   margin-left: 10px;
 }
 
+.link3{
+  text-decoration: none;
+}
 .projectUpdateTitle {
   font-size: 24px;
   font-weight: 600;
@@ -108,8 +118,11 @@
 
 .projectUpdateForm {
   display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
 }
 
 .projectUpdateItem {

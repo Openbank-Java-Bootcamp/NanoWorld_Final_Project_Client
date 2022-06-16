@@ -1,5 +1,3 @@
-// src/pages/EditProject.js
-
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
@@ -10,7 +8,9 @@ const API_URL = "http://localhost:5005";
 function EditProject(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [creator, setCreator] = useState("");
   const { projectId } = useParams();
+  const [formShowing, setFormShowing] = useState(false);
 
   const navigate = useNavigate();
 
@@ -26,6 +26,7 @@ function EditProject(props) {
         const oneProject = response.data;
         setTitle(oneProject.title);
         setDescription(oneProject.description);
+        setCreator(oneProject.creator);
 
         props.refreshProject();
       })
@@ -35,7 +36,7 @@ function EditProject(props) {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const storedToken = localStorage.getItem("authToken");
-    const requestBody = { title, description };
+    const requestBody = { title, description, creator };
 
     //PUT request to update the project
     axios
@@ -45,6 +46,7 @@ function EditProject(props) {
       .then((response) => {
         setTitle("");
         setDescription("");
+        setCreator("");
         navigate("/projects/" + projectId);
 
         props.refreshProject();
@@ -55,30 +57,37 @@ function EditProject(props) {
   return (
     <>
       <form className="projectUpdateForm" onSubmit={handleFormSubmit}>
-        <div className="projectUpdateLeft">
-          <div className="projectUpdateItem">
-            <label>Title:</label>
-            <input
-              type="text"
-              name="title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
-          <div className="projectUpdateItem">
-            <label>Description:</label>
-            <textarea
-              name="description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />{" "}
-          </div>
-          <div className="projectUpdateItem">
-            <button type="submit" className="projectUpdateButton">
-              Update Project
-            </button>
-          </div>
+        {/* <div className="projectUpdateLeft"> */}
+        <div className="formItem">
+          <label>Title:</label>
+          <input
+            type="text"
+            name="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
         </div>
+        <div className="formItem">
+          <label>Creator:</label>
+          <input
+            type="text"
+            name="creator"
+            value={creator}
+            onChange={(e) => setCreator(e.target.value)}
+          />{" "}
+        </div>
+        <div className="formItem">
+          <label>Description:</label>
+          <textarea
+            name="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />{" "}
+        </div>
+
+        <button className="formButton" type="submit">
+          Update Project
+        </button>
       </form>
     </>
   );
