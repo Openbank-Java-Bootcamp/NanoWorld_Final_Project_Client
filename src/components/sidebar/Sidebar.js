@@ -56,7 +56,7 @@ export default function Sidebar() {
               New Project
             </li>
           </Link>
-          <Link to="/projects/1" className="link">
+          <Link to="/comingSoon" className="link">
             <li className="sidebarListItem">
               <AllInboxRounded className="sidebarIcon" />
               Search Project
@@ -79,7 +79,7 @@ export default function Sidebar() {
               New Calculator
             </li>
           </Link>
-          <Link to="/calculators/1" className="link">
+          <Link to="/comingSoon" className="link">
             <li className="sidebarListItem">
               <DialpadRounded className="sidebarIcon" />
               Search Calculator

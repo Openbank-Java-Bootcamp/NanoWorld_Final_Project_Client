@@ -21,6 +21,8 @@ import NewProject from "./pages/projectNew/NewProject";
 import NewCalculator from "./pages/calculatorNew/NewCalculator";
 import Morpho from "./pages/morphoDB/Morpho";
 import EnergyPlot from "./pages/energyPage/EnergyPlot";
+import ComingSoon from "./pages/comingSoon/comingSoon";
+import IsProfessor from "./components/IsProfessor";
 
 function App() {
   return (
@@ -28,7 +30,7 @@ function App() {
       <Topbar />
       <div className="container">
         <Sidebar />
-        
+
         <Routes>
           <Route path="/" element={<HomePage />} />
 
@@ -55,20 +57,24 @@ function App() {
           <Route
             path="/projects/edit/:projectId"
             element={
-              <IsPrivate>
-                {" "}
-                <EditProject />{" "}
-              </IsPrivate>
+              <IsProfessor>
+                <IsPrivate>
+                  {" "}
+                  <EditProject />{" "}
+                </IsPrivate>
+              </IsProfessor>
             }
           />
 
           <Route
             path="/projects/newProject"
             element={
-              <IsPrivate>
-                {" "}
-                <NewProject />{" "}
-              </IsPrivate>
+              <IsProfessor>
+                <IsPrivate>
+                  {" "}
+                  <NewProject />{" "}
+                </IsPrivate>
+              </IsProfessor>
             }
           />
 
@@ -105,6 +111,7 @@ function App() {
           <Route path="/energy" element={<EnergyPlot />} />
 
           <Route path="/morpho" element={<Morpho />} />
+          <Route path="/morpho" element={<ComingSoon />} />
           <Route
             path="/signup"
             element={

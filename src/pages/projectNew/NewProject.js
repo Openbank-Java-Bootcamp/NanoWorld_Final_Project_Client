@@ -40,7 +40,7 @@ function NewProject(props) {
   // POST request to submit New Project
   const handleSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { title, description, calculatorId };
+    const requestBody = { title, creator,  description, calculatorId };
 
     const storedToken = localStorage.getItem("authToken");
 
@@ -78,12 +78,12 @@ function NewProject(props) {
           />
         </div>
         <div className="formItem">
-          <label>Calculator:</label>
+          <label>Creator:</label>
           <input
             type="text"
             name="calculator"
             placeholder="Created by"
-            value={title}
+            value={creator}
             onChange={(e) => setCreator(e.target.value)}
           />
         </div>
@@ -120,6 +120,11 @@ function NewProject(props) {
           Submit
         </button>
       </form>
+      <span className="space">
+        <p>
+          <br />
+        </p>
+      </span>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
   );

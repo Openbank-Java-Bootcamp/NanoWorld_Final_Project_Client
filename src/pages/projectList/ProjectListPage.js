@@ -121,7 +121,7 @@ function ProjectListPage() {
       {isLoading && (
         <>
           <p>
-            <IsLoading /> Is loading
+            <IsLoading /> 
           </p>
         </>
       )}
