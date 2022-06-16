@@ -1,14 +1,8 @@
-// src/App.js
-
 import "./App.css";
-import { Routes, Route } from "react-router-dom"; // <== IMPORT
-
-import Navbar from "./components/Navbar"; // <== IMPORT
+import { Routes, Route } from "react-router-dom"; 
 import HomePage from "./pages/homePage/HomePage";
-
 import ProjectListPage from "./pages/projectList/ProjectListPage";
 import ProjectDetailsPage from "./pages/projectDetails/ProjectDetailsPage";
-import EditProject from "./pages/projectDetails/EditProject";
 import SignupPage from "./pages/signUp/SignupPage";
 import LoginPage from "./pages/login/LoginPage";
 import IsPrivate from "./components/IsPrivate";
@@ -54,17 +48,7 @@ function App() {
             }
           />
 
-          <Route
-            path="/projects/edit/:projectId"
-            element={
-              <IsProfessor>
-                <IsPrivate>
-                  {" "}
-                  <EditProject />{" "}
-                </IsPrivate>
-              </IsProfessor>
-            }
-          />
+         
 
           <Route
             path="/projects/newProject"

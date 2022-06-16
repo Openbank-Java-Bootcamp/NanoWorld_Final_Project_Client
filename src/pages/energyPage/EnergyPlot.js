@@ -26,8 +26,6 @@ export const options = {
 
 export default function EnergyPlot() {
   const [clusters, setClusters] = useState([]);
-  const [x, setX] = useState([]);
-  const [y, setY] = useState([]);
   const [loading, setLoading] = useState(true);
   const [clusterDataSet, setClusterDataSet] = useState([]);
 
@@ -40,10 +38,7 @@ export default function EnergyPlot() {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        // const natoms = response.data.natoms;
-        // const energy = response.data.energy;
         setClusters(response.data);
-        // console.log(`cluster ${clusters}`);
       })
       .catch((error) => console.log(error));
   };

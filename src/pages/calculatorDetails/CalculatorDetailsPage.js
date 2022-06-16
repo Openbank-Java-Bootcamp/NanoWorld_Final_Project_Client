@@ -3,7 +3,7 @@ import "./calculatorDetails.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import CalculatorCard from "../../components/CalculatorCard";
+import CalculatorCard from "../../components/calculatorCard/CalculatorCard";
 import { DeleteOutline } from "@material-ui/icons";
 
 const API_URL = "http://localhost:5005";

@@ -1,13 +1,10 @@
-// src/pages/ProjectDetailsPage.js
 import "./projectDetails.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import AddCluster from "./AddCluster";
 import EditProject from "./EditProject";
-import CalculatorCard from "../../components/CalculatorCard";
 import ClusterCard from "../../components/clusterCard/ClusterCard";
-import EditProjectPage from "./EditProject";
 
 const API_URL = "http://localhost:5005";
 

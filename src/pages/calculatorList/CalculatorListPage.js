@@ -2,8 +2,6 @@ import "./calculatorList.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import CalculatorCard from "../../components/CalculatorCard";
-import NewCalculator from "../../pages/calculatorNew/NewCalculator";
 
 const API_URL = "http://localhost:5005";
 
