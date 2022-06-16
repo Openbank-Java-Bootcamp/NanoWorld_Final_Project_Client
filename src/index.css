@@ -24,7 +24,8 @@ label {
 }
 
 input,
-textarea {
+textarea,
+select {
   width: 200px;
   padding: 10px;
   display: inline-block;
@@ -150,7 +151,7 @@ nav li {
   margin: 20px, 100px;
   cursor: pointer;
 }
-.space{
+.space {
   line-height: 1cm;
 }
 /* Forms */
@@ -214,6 +215,17 @@ nav li {
 .formItem > textarea {
   width: 10cm;
   height: 3cm;
+  line-height: normal;
+  font-size: 20px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-image: linear-gradient(0, #b47e11, #fef1a2);
+  color: rgb(41, 20, 9);
+}
+
+.formItem > select {
+  width: 10cm;
+  height: auto;
   line-height: normal;
   font-size: 20px;
   border: 1px solid gray;
@@ -291,7 +303,7 @@ nav li {
 }
 .error-message {
   font-weight: 600;
- height: 10px;
+  height: 10px;
   color: red;
   border-radius: 5px;
   background-image: linear-gradient(0deg, rgb(250, 227, 133), transparent);

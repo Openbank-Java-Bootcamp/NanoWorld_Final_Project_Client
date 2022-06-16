@@ -9,17 +9,17 @@ function ClusterCard({ formula, energy, mag, config }) {
         <p>{energy}</p>
       </div>
       <div className="clusterInfo">
-        <h4>Magnetización:</h4>
+        <h4>Magnetization:</h4>
         <p>{mag}</p>
       </div>
-      {!{ config } ? (
+      {/* {!{ config } ? (
         <hr/>
       ) : (
         <div className="clusterInfo">
           <h4>Config:</h4>
           <p>{config}</p>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

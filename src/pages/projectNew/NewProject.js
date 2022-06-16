@@ -9,6 +9,7 @@ const API_URL = "http://localhost:5005";
 function NewProject(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [creator, setCreator] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -35,9 +36,7 @@ function NewProject(props) {
     getAllCalculators();
   }, []);
 
-  // const calcs = calculators.map((calculator) => ({ label : calculator.comm, value : calculator.id}))
-  /////////
-
+  
   // POST request to submit New Project
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,6 +51,7 @@ function NewProject(props) {
       .then((response) => {
         setTitle("");
         setDescription("");
+        setCreator("");
         setCalculatorId(0);
 
         navigate("/projects");
@@ -63,7 +63,7 @@ function NewProject(props) {
   };
 
   return (
-    <div className="formPage">
+    <div className="formPage" id="main">
       <h1 className="formTitle">New Project</h1>
 
       <form className="formFormat" onSubmit={handleSubmit}>
@@ -75,6 +75,16 @@ function NewProject(props) {
             placeholder="Project title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
+        <div className="formItem">
+          <label>Calculator:</label>
+          <input
+            type="text"
+            name="calculator"
+            placeholder="Created by"
+            value={title}
+            onChange={(e) => setCreator(e.target.value)}
           />
         </div>
         <div className="formItem">

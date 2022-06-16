@@ -123,17 +123,12 @@
   flex-direction: column;
   position: relative;
   align-items: center;
+  
 }
 
-.projectUpdateItem {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-}
 
-.projectUpdateItem > label {
-  margin-bottom: 5px;
-  font-size: 14px;
+
+.formItem > label {line-height: 20px;
 }
 
 .projectUpdateInput {
