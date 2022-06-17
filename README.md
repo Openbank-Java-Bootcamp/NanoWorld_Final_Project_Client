@@ -64,8 +64,6 @@ The main function of the application is to allow teachers and researchers to loa
   - projectNew
   - signUp
 
-![imagen_intro](img/modelsDiag.png)
-
 ---
 
 ---

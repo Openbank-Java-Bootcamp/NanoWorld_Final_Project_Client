@@ -53,12 +53,12 @@ function App() {
           <Route
             path="/projects/newProject"
             element={
-              <IsProfessor>
-                <IsPrivate>
+              <IsPrivate>
+                <IsProfessor>
                   {" "}
                   <NewProject />{" "}
-                </IsPrivate>
-              </IsProfessor>
+                </IsProfessor>{" "}
+              </IsPrivate>
             }
           />
 
@@ -85,19 +85,42 @@ function App() {
           <Route
             path="/calculators/newCalculator"
             element={
-              <IsProfessor>
-                <IsPrivate>
+              <IsPrivate>
+                <IsProfessor>
                   {" "}
                   <NewCalculator />{" "}
-                </IsPrivate>
-              </IsProfessor>
+                </IsProfessor>
+              </IsPrivate>
             }
           />
 
-          <Route path="/energy" element={<EnergyPlot />} />
-          <Route path="/energy/nanoparticles" element={<EnergyPlot />} />
+          <Route
+            path="/energy"
+            element={
+              <IsPrivate>
+                {" "}
+                <EnergyPlot />
+              </IsPrivate>
+            }
+          />
+          <Route
+            path="/energy/nanoparticles"
+            element={
+              <IsPrivate>
+                {" "}
+                <ComingSoon />
+              </IsPrivate>
+            }
+          />
 
-          <Route path="/comingsoon" element={<ComingSoon />} />
+          <Route
+            path="/comingsoon"
+            element={
+              <IsPrivate>
+                <ComingSoon />
+              </IsPrivate>
+            }
+          />
 
           <Route
             path="/signup"
