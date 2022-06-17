@@ -90,12 +90,15 @@ function NewCalculator(props) {
           />
         </div>
         <div className="formItem">
-          <label>  <a
+          <label>
+            {" "}
+            <a
               classname="linkTitle"
               href="https://www.vasp.at/wiki/index.php/LREAL"
             >
               Lreal:
-            </a></label>
+            </a>
+          </label>
           <select
             className="formItem"
             type="text"

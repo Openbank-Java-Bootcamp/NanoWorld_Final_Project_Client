@@ -82,16 +82,11 @@ function CalculatorDetailsPage(props) {
           {/* Clusters Details */}
         </div>
         <DeleteOutline
-              className="projectListDelete"
-              //onClick={() => handleDelete(projects.row.id)}
+              className="projectListDelete" 
               onClick={() => deleteCalculator(calculatorId)}
             />
       </div>
 
-      {/* ADD   
-      <Link to={`/calculators/edit/${calculatorId}`}>
-        <button>Edit Calculator</button>
-      </Link> */}
     </div>
   );
 }

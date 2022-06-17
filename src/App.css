@@ -3,20 +3,20 @@
   padding: 0;
   --main-radius: 5px;
   --main-padding: 5px;
+ 
 }
 
-.container{
+.container {
   display: flex;
   margin-top: 10px;
 }
 
-
-.link{
+.link {
   text-decoration: none;
   color: inherit;
 }
 
-#main{
+#main {
   padding-left: 2%;
   padding-right: -20%;
   padding-top: 2%;

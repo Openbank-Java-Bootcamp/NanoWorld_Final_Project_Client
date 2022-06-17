@@ -12,14 +12,6 @@ function ClusterCard({ formula, energy, mag, config }) {
         <h4>Magnetization:</h4>
         <p>{mag}</p>
       </div>
-      {/* {!{ config } ? (
-        <hr/>
-      ) : (
-        <div className="clusterInfo">
-          <h4>Config:</h4>
-          <p>{config}</p>
-        </div>
-      )} */}
     </div>
   );
 }
