@@ -1,5 +1,5 @@
 import React from "react";
-import gif from "../../assets/java_error_in_idea_1214.gif";
+import gif from "../../assets/error404.png";
 
 export default function ErrorPage() {
   return (
@@ -10,3 +10,4 @@ export default function ErrorPage() {
 
   );
 }
+

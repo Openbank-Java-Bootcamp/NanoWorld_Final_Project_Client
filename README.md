@@ -1,71 +1,88 @@
-# Getting Started with Create React App
+#  🌕🌕🌕 NanoWorld 🌕🌕🌕
 
-[Slides](https://slides.com/josefinacresta/dea-aa465a)
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Final project
 
-## Available Scripts
+### Author : Josefina Cresta
 
-In the project directory, you can run:
+#### Fri, 17 Jun 2022
 
-### `npm start`
+Demo presentation: [*Slides*](https://slides.com/josefinacresta/dea-aa465a)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The idea of ​​this project is to create a tool for universities and scientific institutions with the aim of uniting and disseminating knowledge about nanoscience.  Especially focused on the analysis of data from atomic simulations carried out on nanoparticles.  As a pilot test, the tool is developed and tested with information from simulations of gold nanoclusters and nanoparticles. 
 
-### `npm test`
+The main function of the application is to allow teachers and researchers to load the configurations of the possible good calculators to perform structural and energy calculations.  it is also possible to load their respective results.  Finally, it gives students the possibility to visualize, analyze and study the available information and contribute with little a results that they made as part of theirs studies. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+--- 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies Used
+* React
+* html
+* js 
+* css
+ 
+--- 
+## Components and Pages structure
 
-### `npm run eject`
+* *Componets*
+  * bubbleChart
+  * calculatorCard
+  * clusterCard
+  * infoBox
+  * IsAnon.js
+  * IsLoading
+  * IsPrivate.js
+  * IsProfessor.js
+  * lineChart
+  * scatterChart
+  * sidebar
+  * topbar
+  * WidgetLg
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* *Pages*
+  * calculatorDetails
+  * calculatorList
+  * calculatorNew
+  * comingSoon
+  * energyPage
+  * errorPages
+  * homePage
+  * login
+  * morphoDB
+  * projectDetails
+  * projectList
+  * projectNew
+  * signUp
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![imagen_intro](img/modelsDiag.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
+## Future Work
+ The work has many Coming soon, like project and calculators search engines  by different attributes such as ids, titles, creators.
 
-## Learn More
+  In addition, each user should have their pages where they have direct access to the data they provided.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  Teachers would have their list of projects, calculators and also their students and their respective completed projects.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  And the students could have the list of their completed projects and those of their professors.
 
-### Code Splitting
+  It could also have data on other nanomaterials.  Not just Nano gold.  There is also extensive information on calculations on nanoclusters or nanoparticles of silver, platinum, copper, among others.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  Finally, it would be interesting to plot different selected projects on the same graph in order to compare the efficiency of their calculators. 
+    
 
-### Analyzing the Bundle Size
+## Resources
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* [React documentation](https://reactjs.org/).
+ * [ MUI components](https://mui.com)
+ * [chart.js](https://www.chartjs.org/docs/latest/)
+ * 
+ * [VASP](https://www.vasp.at/wiki/index.php/Main_page)

@@ -18,6 +18,7 @@ import EnergyPlot from "./pages/energyPage/EnergyPlot";
 import ComingSoon from "./pages/comingSoon/comingSoon";
 import IsProfessor from "./components/IsProfessor";
 import IsLoading from "./components/IsLoading/IsLoading";
+import ErrorPage from "./pages/errorPages/ErrorPage";
 
 function App() {
   return (
@@ -96,9 +97,8 @@ function App() {
           <Route path="/energy" element={<EnergyPlot />} />
           <Route path="/energy/nanoparticles" element={<EnergyPlot />} />
 
-          
           <Route path="/comingsoon" element={<ComingSoon />} />
-          {/* <Route path="/comingsoon" element={<IsLoading />} /> */}
+
           <Route
             path="/signup"
             element={
@@ -117,6 +117,8 @@ function App() {
               </IsAnon>
             }
           />
+
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
     </div>
