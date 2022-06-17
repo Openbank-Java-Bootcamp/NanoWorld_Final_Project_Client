@@ -24,7 +24,7 @@ function ProjectListPage() {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        console.log(response.data);
+   
         setProjects(response.data);
         setLoading(false);
       })
@@ -44,7 +44,7 @@ function ProjectListPage() {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {
-        console.log(id);
+
         getAllProjects();
         navigate("/projects");
       })

@@ -8,7 +8,7 @@ function CalculatorCard(props) {
       <div className="clusterInfo">
         <h4>
           {" "}
-          <a
+          <a target="_blank" 
             classname="linkTitle"
             href="https://www.vasp.at/wiki/index.php/GGA"
           >
@@ -21,7 +21,7 @@ function CalculatorCard(props) {
       <div className="clusterInfo">
         <h4>
           {" "}
-          <a
+          <a target="_blank"
             classname="linkTitle"
             href="https://www.vasp.at/wiki/index.php/IBRION "
           >
@@ -33,7 +33,7 @@ function CalculatorCard(props) {
 
       <div className="clusterInfo">
         <h4>
-          <a
+          <a target="_blank"
             classname="linkTitle"
             href="ttps://www.vasp.at/wiki/index.php/ENCUT"
           >
@@ -45,7 +45,7 @@ function CalculatorCard(props) {
 
       <div className="clusterInfo">
         <h4>
-          <a
+          <a target="_blank"
             classname="linkTitle"
             href="ttps://www.vasp.at/wiki/index.php/ENCUT"
           >
@@ -57,7 +57,7 @@ function CalculatorCard(props) {
 
       <div className="clusterInfo">
         <h4>
-          <a
+          <a target="_blank"
             classname="linkTitle"
             href="ttps://www.vasp.at/wiki/index.php/ENCUT"
           >
@@ -69,7 +69,7 @@ function CalculatorCard(props) {
 
       <div className="clusterInfo">
         <h4>
-          <a
+          <a target="_blank"
             classname="linkTitle"
             href="ttps://www.vasp.at/wiki/index.php/ENCUT"
           >
@@ -81,7 +81,7 @@ function CalculatorCard(props) {
 
       <div className="clusterInfo">
         <h4>
-          <a
+          <a target="_blank"
             classname="linkTitle"
             href="ttps://www.vasp.at/wiki/index.php/ENCUT"
           >

@@ -9,12 +9,13 @@ const API_URL = "http://localhost:5005";
 function AddCluster(props) {
   const [formula, setFormula] = useState("");
   const [energy, setEnergy] = useState(0);
+  const [natoms, setNatoms] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const { projectId } = props;
     // const requestBody = { formula, natoms, energy, forces, magmon, projectId };
-    const requestBody = { formula, energy, projectId };
+    const requestBody = { formula, natoms, energy, projectId };
     const storedToken = localStorage.getItem("authToken");
 
     axios
@@ -24,7 +25,7 @@ function AddCluster(props) {
       .then((response) => {
         setFormula("");
         setEnergy("");
-
+        setNatoms("");
         props.refreshProject();
       })
       .catch((error) => console.log(error));
@@ -41,6 +42,15 @@ function AddCluster(props) {
             name="formula"
             value={formula}
             onChange={(e) => setFormula(e.target.value)}
+          />
+        </div>
+        <div className="formItem">
+          <label>Number of Atoms:</label>
+          <input
+            type="number"
+            name="natoms"
+            value={natoms}
+            onChange={(e) => setNatoms(e.target.value)}
           />
         </div>
         <div className="formItem">

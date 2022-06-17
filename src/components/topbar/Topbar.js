@@ -43,12 +43,7 @@ export default function Topbar() {
                   <ExitToAppRoundedIcon />
                 </div>
               </div>
-              <div className="logo username">
-                <p>
-                  {" "}
-                  Hello <br /> {user && user.name}
-                </p>
-              </div>
+              <div className="logo username">{user && user.name}</div>
             </div>
           </>
         )}

@@ -29,8 +29,6 @@ function SignupPage(props) {
 
       .then((response) => {
         navigate("/login");
-        console.log(requestBody);
-        console.log(role);
       })
       .catch((error) => {
         const errorDescription = error.response.data.errors[0].defaultMessage;
@@ -90,11 +88,7 @@ function SignupPage(props) {
           Sign Up
         </button>
       </form>
-      <span className="space">
-        <p>
-          <br />
-        </p>
-      </span>
+
       <div className="formItem">
         {errorMessage && <p className="error-message">{errorMessage}</p>}
       </div>

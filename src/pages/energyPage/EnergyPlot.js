@@ -13,13 +13,18 @@ import axios from "axios";
 
 const API_URL = "http://localhost:5005";
 
-ChartJS.register(LinearScale, PointElement, Legend);
+ChartJS.register(LinearScale, PointElement, Tooltip, Legend);
 
 export const options = {
   scales: {
-    y: {
-      beginAtZero: true,
-    },
+    xAxes: [
+      {
+        scaleLabel: {
+          display: true,
+          labelString: "energy",
+        },
+      },
+    ],
   },
 };
 
@@ -52,7 +57,7 @@ export default function EnergyPlot() {
     let tooltip = {};
     tempObjArray = clusters.map((cluster) => ({
       x: cluster.natoms,
-      y: cluster.energyAtom,
+      y: cluster.energy,
       r: faker.datatype.number({ min: 5, max: 10 }),
     }));
     tooltip = clusters.map((cluster) => ({
@@ -68,20 +73,19 @@ export default function EnergyPlot() {
 
   return (
     <div className="home" id="main">
+      <div className="logo ">Energy Plot</div>
       {!loading && (
         <Bubble
           options={options}
           data={{
             datasets: [
               {
-                label: "Gold Nano Clusters {project id}, {calc_id}",
+                label: "Gold Nano Clusters",
                 data: clusterDataSet,
                 backgroundColor: "rgba(255, 99, 132, 0.5)",
               },
             ],
           }}
-          // tooltips=TOOLTIPS,
-          // title="Numbers of atoms Vs Energy", x_axis_label=('N_atoms'), y_axis_label=('Energy[eV/atom]'
         />
       )}
       {loading && <></>}

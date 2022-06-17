@@ -75,7 +75,7 @@ function NewCalculator(props) {
         <div className="formItem">
           <label>
             {" "}
-            <a
+            <a target="_blank"
               classname="linkTitle"
               href="https://www.vasp.at/wiki/index.php/GGA"
             >
@@ -92,7 +92,7 @@ function NewCalculator(props) {
         <div className="formItem">
           <label>
             {" "}
-            <a
+            <a target="_blank"
               classname="linkTitle"
               href="https://www.vasp.at/wiki/index.php/LREAL"
             >
@@ -113,7 +113,7 @@ function NewCalculator(props) {
         <div className="formItem">
           <label>
             {" "}
-            <a
+            <a target="_blank"
               classname="linkTitle"
               href="https://www.vasp.at/wiki/index.php/IBRION "
             >
@@ -130,7 +130,7 @@ function NewCalculator(props) {
         <div className="formItem">
           <label>
             {" "}
-            <a
+            <a target="_blank"
               classname="linkTitle"
               href="ttps://www.vasp.at/wiki/index.php/ENCUT"
             >
@@ -147,7 +147,7 @@ function NewCalculator(props) {
         <div className="formItem">
           <label>
             {" "}
-            <a
+            <a target="_blank"
               classname="linkTitle"
               href="ttps://www.vasp.at/wiki/index.php/ENCUT"
             >
@@ -164,7 +164,7 @@ function NewCalculator(props) {
         <div className="formItem">
           <label>
             {" "}
-            <a
+            <a target="_blank"
               classname="linkTitle"
               href="ttps://www.vasp.at/wiki/index.php/ENCUT"
             >
@@ -182,7 +182,7 @@ function NewCalculator(props) {
         <div className="formItem">
           <label>
             {" "}
-            <a
+            <a target="_blank"
               classname="linkTitle"
               href="ttps://www.vasp.at/wiki/index.php/ENCUT"
             >
@@ -200,7 +200,7 @@ function NewCalculator(props) {
         <div className="formItem">
           <label>
             {" "}
-            <a
+            <a target="_blank"
               classname="linkTitle"
               href="ttps://www.vasp.at/wiki/index.php/ENCUT"
             >
@@ -218,7 +218,7 @@ function NewCalculator(props) {
         <div className="formItem">
           <label>
             {" "}
-            <a
+            <a target="_blank"
               classname="linkTitle"
               href="ttps://www.vasp.at/wiki/index.php/ENCUT"
             >

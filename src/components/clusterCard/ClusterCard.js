@@ -1,7 +1,7 @@
 import "./clusterCard.css";
 function ClusterCard({ formula, energy, mag, config }) {
   return (
-    <div className="ClusterCard">
+    <div className="ClusterCard1">
       <h3>{formula}</h3>
       <hr></hr>
       <div className="clusterInfo">

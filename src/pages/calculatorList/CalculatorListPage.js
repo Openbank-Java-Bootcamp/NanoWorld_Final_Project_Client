@@ -39,7 +39,7 @@ function CalculatorListPage() {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {
-        console.log(id);
+      
         getAllCalculators();
         navigate("/calculators");
       })
