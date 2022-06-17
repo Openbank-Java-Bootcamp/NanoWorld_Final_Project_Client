@@ -1,5 +1,6 @@
 # Getting Started with Create React App
 
+[Slides](https://slides.com/josefinacresta/dea-aa465a)
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

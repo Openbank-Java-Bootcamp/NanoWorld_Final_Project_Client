@@ -13,10 +13,9 @@ import axios from "axios";
 
 const API_URL = "http://localhost:5005";
 
-ChartJS.register(LinearScale, PointElement,  Legend);
+ChartJS.register(LinearScale, PointElement, Legend);
 
 export const options = {
- 
   scales: {
     y: {
       beginAtZero: true,
@@ -50,24 +49,25 @@ export default function EnergyPlot() {
   //UseEffect to map clusters and make array of needed data
   useEffect(() => {
     let tempObjArray = [];
-    let tooltip = {}
+    let tooltip = {};
     tempObjArray = clusters.map((cluster) => ({
       x: cluster.natoms,
       y: cluster.energyAtom,
       r: faker.datatype.number({ min: 5, max: 10 }),
     }));
     tooltip = clusters.map((cluster) => ({
-    callbacks: {
-      title: function (context) {
-        return `AU${cluster.natoms}`;
+      callbacks: {
+        title: function (context) {
+          return `AU${cluster.natoms}`;
+        },
       },
-    }}));
+    }));
     setClusterDataSet(tempObjArray);
     setLoading(false);
   }, [clusters]);
 
   return (
-    <div className="home">
+    <div className="home" id="main">
       {!loading && (
         <Bubble
           options={options}

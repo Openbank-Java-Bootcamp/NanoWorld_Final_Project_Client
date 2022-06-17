@@ -5,11 +5,11 @@ export default function FeaturedInfo(props) {
   return (
     <div className="featured">
       <div className="featuredItem">
-        <span className="featuredTitle">props</span>
+        <span className="featuredTitle">Welcome to NanoWold</span>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">$2,225</span>
+          <span className="featuredMoney">Hope to see you in the next event: </span>
           <span className="featuredMoneyRate">
-            +2.4 <ArrowUpward className="featuredIcon" />
+           <ArrowUpward className="featuredIcon" />
           </span>
         </div>
         <span className="featuredSub">Compared to last month</span>

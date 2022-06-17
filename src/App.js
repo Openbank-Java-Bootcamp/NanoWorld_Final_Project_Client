@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom"; 
+import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/homePage/HomePage";
 import ProjectListPage from "./pages/projectList/ProjectListPage";
 import ProjectDetailsPage from "./pages/projectDetails/ProjectDetailsPage";
@@ -17,6 +17,7 @@ import Morpho from "./pages/morphoDB/Morpho";
 import EnergyPlot from "./pages/energyPage/EnergyPlot";
 import ComingSoon from "./pages/comingSoon/comingSoon";
 import IsProfessor from "./components/IsProfessor";
+import IsLoading from "./components/IsLoading/IsLoading";
 
 function App() {
   return (
@@ -47,8 +48,6 @@ function App() {
               </IsPrivate>
             }
           />
-
-         
 
           <Route
             path="/projects/newProject"
@@ -85,17 +84,21 @@ function App() {
           <Route
             path="/calculators/newCalculator"
             element={
-              <IsPrivate>
-                {" "}
-                <NewCalculator />{" "}
-              </IsPrivate>
+              <IsProfessor>
+                <IsPrivate>
+                  {" "}
+                  <NewCalculator />{" "}
+                </IsPrivate>
+              </IsProfessor>
             }
           />
 
           <Route path="/energy" element={<EnergyPlot />} />
+          <Route path="/energy/nanoparticles" element={<EnergyPlot />} />
 
-          <Route path="/morpho" element={<Morpho />} />
-          <Route path="/morpho" element={<ComingSoon />} />
+          
+          <Route path="/comingsoon" element={<ComingSoon />} />
+          {/* <Route path="/comingsoon" element={<IsLoading />} /> */}
           <Route
             path="/signup"
             element={

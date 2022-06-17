@@ -5,7 +5,7 @@ import {
   MenuBookRounded,
   DialpadRounded,
   AllInboxRounded,
-  FitnessCenterRounded,
+  EventRounded,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
@@ -21,22 +21,16 @@ export default function Sidebar() {
             </li>
           </Link>
 
-          <Link to="/articles" className="link">
+          <Link to="/comingsoon" className="link">
             <li className="sidebarListItem">
               <MenuBookRounded className="sidebarIcon" />
               Articles
             </li>
           </Link>
-          <Link to="/energy" className="link">
+          <Link to="/comingsoon" className="link">
             <li className="sidebarListItem">
-              <Timeline className="sidebarIcon" />
-              Energy Graph 
-            </li>
-          </Link>
-          <Link to="/morpho" className="link">
-            <li className="sidebarListItem">
-              <FitnessCenterRounded className="sidebarIcon" />
-              Forces
+              <EventRounded className="sidebarIcon" />
+              Events
             </li>
           </Link>
         </ul>
@@ -83,6 +77,23 @@ export default function Sidebar() {
             <li className="sidebarListItem">
               <DialpadRounded className="sidebarIcon" />
               Search Calculator
+            </li>
+          </Link>
+        </ul>
+      </div>
+      <div className="sidebarMenu">
+        <h3 className="sidebarTitle">Energy Plots</h3>
+        <ul className="sidebarList">
+          <Link to="/energy" className="link">
+            <li className="sidebarListItem">
+              <Timeline className="sidebarIcon" />
+              NanoClusters
+            </li>
+          </Link>
+          <Link to="/energy/nanoparticles" className="link">
+            <li className="sidebarListItem">
+              <Timeline className="sidebarIcon" />
+              NanoParticles
             </li>
           </Link>
         </ul>

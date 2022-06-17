@@ -1,12 +1,10 @@
 import React from "react";
-import gif from "../../assets/java_error_in_idea_1214.gif";
-
+import gif from "../../assets/tulla-curtain-tulla-peakaboo.gif";
+import "./comingSoon.css";
 export default function ComingSoon() {
   return (
-    <div>
-      <div className="home">
-        <img src={gif} alt="" />
-      </div>
+    <div className="home" id="main">
+      <h1 className="goldButton">Coming Soon...</h1> <img src={gif} alt="" />
     </div>
   );
 }
